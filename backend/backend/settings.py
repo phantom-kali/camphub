@@ -9,8 +9,7 @@ SECRET_KEY = "django-insecure-rp%n4cux&^wi7gz&vilfy7zi6k^=5h7ab)u548(7tb+dh4@dne
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_ALLOWED_ORIGIN = ["https://camphub-demo.vercel.app/", "https://camphub-demo.onrender.com/"]
-CORS_ALLOW_ALL_ORIGINS = ["https://camphub-demo.vercel.app/", "https://camphub-demo.onrender.com/"]
+
 
 
 INSTALLED_APPS = [
@@ -56,17 +55,17 @@ SPECTACULAR_SETTINGS = {
     - Community features (posts, groups, events)
     - Real-time messaging and notifications system
     - Content feed with machine learning algorithms
-    
+
     ## Authentication
     This API uses JWT (JSON Web Tokens) for authentication. Include the access token in the Authorization header:
     `Authorization: Bearer <your-access-token>`
-    
+
     ## Real-time Features
     Messaging supports real-time updates through WebSocket connections for instant message delivery and presence status.
-    
+
     ## Rate Limiting
     API endpoints are rate-limited to prevent abuse. Messaging endpoints have specific limits for message sending.
-    
+
     ## File Uploads
     Image and file uploads are automatically optimized and validated for security and performance.
     ''',
@@ -203,11 +202,9 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10MB
 
 # CORS settings
-CORS_ALLOW_ALL_ORIGINS = True  # Only for development
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # Vite's default development server
-    "http://127.0.0.1:5173",
-]
+CORS_ALLOWED_ORIGINS = ["https://camphub-demo.vercel.app", "https://camphub-demo.onrender.com", "http://localhost:8080"]
+CORS_ALLOW_CREDENTIALS = True
+CSRF_ALLOWED_ORIGIN = ["https://camphub-demo.vercel.app", "https://camphub-demo.onrender.com", "http://localhost:8080"]
 
 # Messaging-specific settings
 MESSAGE_RATE_LIMIT = 60  # messages per minute per user

@@ -33,8 +33,8 @@ const Navigation = () => {
     { path: "/notifications", label: "Notifications", icon: Bell },
     { path: "/courses", label: "Courses", icon: Book },
     { path: "/events", label: "Events", icon: Calendar },
-    { path: "/marketplace", label: "Marketplace", icon: MapPin },
-    { path: "/institutions", label: "Institutions", icon: Book },
+    // { path: "/marketplace", label: "Marketplace", icon: MapPin },
+    // { path: "/institutions", label: "Institutions", icon: Book },
   ];
 
   return (
@@ -44,23 +44,27 @@ const Navigation = () => {
           open ? "w-52" : "w-10"
         } lg:${open ? "w-52" : "w-20"}  duration-300 h-full  mt-10  bg-blue-50 text-white `}
       >
-        
         <div className="p-4 mb-9 pt-6 flex justify-between items-center">
-         
           <Link to="/dashboard" className="flex items-center space-x-2">
-            <div className={`${!open ? "w-5" :"w-8" } ${!open ? "h-5" : "h-8"}  bg-blue-600 rounded-lg flex items-center justify-center`}>
-              <Users className={` ${!open ? "w-3" :"w-5" } text-white`} />
+            <div
+              className={`${!open ? "w-5" : "w-8"} ${!open ? "h-5" : "h-8"}  bg-blue-600 rounded-lg flex items-center justify-center`}
+            >
+              <Users className={` ${!open ? "w-3" : "w-5"} text-white`} />
             </div>
-            <span className={`font-bold text-xl  text-black ${!open && 'scale-0'}`}>CampusConnect</span>
+            <span
+              className={`font-bold text-xl  text-black ${!open && "scale-0"}`}
+            >
+              CampusConnect
+            </span>
           </Link>
         </div>
 
         <div className={`flex flex-col gap-4   space-x-1`}>
-           <ArrowLeft
-          className={` cursor-pointer rounded-full ml-5 w-7 lg:-right-11 lg:${open ? "-right-3" : "right-13"} border-2 border-gray-50 bg-blue-600 hover:bg-blue-50  text-white hover:text-black
+          <ArrowLeft
+            className={` cursor-pointer rounded-full ml-5 w-7 lg:-right-11 lg:${open ? "-right-3" : "right-13"} border-2 border-gray-50 bg-blue-600 hover:bg-blue-50  text-white hover:text-black
 ${!open && "rotate-180"} `}
-          onClick={() => setOpen(!open)}
-        />
+            onClick={() => setOpen(!open)}
+          />
           {mainNavItems.slice(0, 10).map((item) => (
             <Link key={item.path} to={item.path}>
               <Button
@@ -72,12 +76,14 @@ ${!open && "rotate-180"} `}
                 } `}
               >
                 <item.icon className="w-4 h-4 " />
-                <span className={`${!open && 'scale-0' }`} >{item.label} </span> 
-                <span  className={`${!open && 'scale-0'}`} >{item.label === "Messages" && (
-                  <Badge className="ml-2 bg-red-500 text-white text-xs px-1.5 py-0.5">
-                    3
-                  </Badge>
-                )}</span>
+                <span className={`${!open && "scale-0"}`}>{item.label} </span>
+                <span className={`${!open && "scale-0"}`}>
+                  {item.label === "Messages" && (
+                    <Badge className="ml-2 bg-red-500 text-white text-xs px-1.5 py-0.5">
+                      3
+                    </Badge>
+                  )}
+                </span>
               </Button>
             </Link>
           ))}
@@ -92,16 +98,20 @@ ${!open && "rotate-180"} `}
                   size="sm"
                   className="flex items-center space-x-2"
                 >
-                  <div className={` ${!open ? "w-5" :"w-8" } ${!open ? "h-5" : "h-8"} bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center`}>
+                  <div
+                    className={` ${!open ? "w-5" : "w-8"} ${!open ? "h-5" : "h-8"} bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center`}
+                  >
                     <User className={`w-4 h-4 text-white`} />
                   </div>
                 </Button>
               </div>
 
-              <div className={` ${!open && 'scale-0'}  flex justify-center items-center  ml-3`}>
+              <div
+                className={` ${!open && "scale-0"}  flex justify-center items-center  ml-3`}
+              >
                 <div className="leading-4">
                   <h4 className="font-semibold text-black">John Doe</h4>
-                  <span className={` text-xs text-gray-600` }>
+                  <span className={` text-xs text-gray-600`}>
                     johndoe.email.com
                   </span>
                 </div>

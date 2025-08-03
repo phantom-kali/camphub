@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowLeft, Filter, Plus } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Bell,
@@ -21,6 +21,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import Navigation from "@/components/Navigation";
+import { getCourses } from "@/services/apiClient";
 
 const Course = () => {
   /* const [open, setOpen] = useState(false); */
@@ -30,6 +31,20 @@ const Course = () => {
   const [showSecondaryNav, setShowSecondaryNav] = useState(false);
 
   const isActive = (path) => location.pathname === path;
+
+  const [courses_d, setCourses] = useState([]);
+  const fetchCourses = async () => {
+    try {
+      const data = await getCourses();
+      setCourses(data);
+    } catch (err) {
+      console.error("Error loading Courses:", err);
+    }
+  };
+
+  useEffect(() => {
+    fetchCourses();
+  }, []);
 
   const mainNavItems = [
     { path: "/dashboard", label: "Feed", icon: Users },
